@@ -24,9 +24,9 @@ class CreateProfissionaisTable extends Migration
             $table->foreign('especialidade_id')->references('id')->on('especialidades');
             
             $table->string('endereco');
-            $table->string('telefone1', 20);
-            $table->string('telefone2', 20);
-            $table->string('whatsapp', 20);
+            $table->string('telefone1', 30);
+            $table->string('telefone2', 30);
+            $table->string('whatsapp', 30);
 
             $table->string('email');
 
@@ -44,6 +44,9 @@ class CreateProfissionaisTable extends Migration
      */
     public function down()
     {
+        Schema::dropForeign('profissionais_especialidade_id_foreign');
+        Schema::dropForeign('profissionais_cidade_id_foreign');
+
         Schema::dropIfExists('profissionais');
     }
 }
