@@ -14,7 +14,7 @@ class CidadeController extends Controller
      */
     public function index()
     {
-        Cidade::paginate(20);
+        return Cidade::paginate(20);
     }
 
     /**

@@ -29,4 +29,5 @@ class CidadesTableSeeder extends Seeder
         Cidade::create(['nome' => 'Vitória']);
 
     }
+    
 }

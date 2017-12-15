@@ -8,33 +8,16 @@ use App\Profissional;
 use App\Plano;
 use App\Especialidade;
 use App\Cidade;
+use App\Plano_Profissional;
 
 class Teste extends Controller
 {
     public function index(){
  
+        $pp = Plano_Profissional::find(2);
 
-
-    foreach( Cidade::all() as $cidade){
-        echo <<<SAIDA
-        ID: {$cidade->id}
-        <br>
-        CIDADE: {$cidade->nome}
-        <br>
-        ESPECIALIDADES:
-SAIDA;
-
-        foreach($cidade->especialidades() as $especialidade){
-            echo "$especialidade->nome, ";
-        }
-
-        echo "<br><hr><br>";
-
-    }
-
-
-    
-
+        echo 'PROFISSIONAL = '.$pp->profissional->nome;
+        echo '<br>PLANO = '.$pp->plano->nome;
 
 
     }
