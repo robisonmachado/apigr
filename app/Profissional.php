@@ -29,7 +29,9 @@ class Profissional extends Model
 
 
     public function planos(){
-        return $this->hasMany('App\Plano_Profissional');
+        return $this->belongsToMany('App\Plano');
     }
+
+    
     
 }

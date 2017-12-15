@@ -12,54 +12,29 @@ use App\Cidade;
 class Teste extends Controller
 {
     public function index(){
- /*       
-        $profissionais = Profissional::all();
+ 
 
-        foreach($profissionais as $p){
-            echo <<<SAIDA
-    ID: {$p->id}
-    <br>
-    PROFISSIONAL: {$p->nome}
-    <br>
-    ESPECIALIDADE: {$p->especialidade->nome}
-    <br>
-    CIDADE: {$p->cidade->nome}
-    <br>
-SAIDA;
-        
-var_dump($p->planos);
 
-            echo '<hr>';
-        }
-  */  
-    $cidade = Cidade::find(14);
-
-    foreach($cidade->profissionais as $p){
-
+    foreach( Cidade::all() as $cidade){
         echo <<<SAIDA
-        ID: {$p->id}
+        ID: {$cidade->id}
         <br>
-        PROFISSIONAL: {$p->nome}
+        CIDADE: {$cidade->nome}
         <br>
-        ESPECIALIDADE: {$p->especialidade->nome}
-        <br>
-        CIDADE: {$p->cidade->nome}
-        <br><hr>
+        ESPECIALIDADES:
 SAIDA;
 
-}
+        foreach($cidade->especialidades() as $especialidade){
+            echo "$especialidade->nome, ";
+        }
 
-foreach($cidade->especialidades as $e){
-    
-            echo <<<SAIDA
-            <br><br>
-            ID: {$e->id}
-            <br>
-            ESPECIALIDADE: {$e->nome}
-            <br><hr>
-SAIDA;
-    
+        echo "<br><hr><br>";
+
     }
+
+
+    
+
 
 
     }

@@ -9,4 +9,9 @@ class Plano extends Model
     protected $table = 'planos';
 
     protected $fillable = ['nome'];
+
+    public function profissionais(){
+        return $this->belongsToMany('App\Profissional');
+    }
+
 }

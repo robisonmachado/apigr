@@ -12,9 +12,12 @@ class Cidade extends Model
         return $this->hasMany('App\Profissional');
     }
 
+    
     function especialidades(){
-        //return $this->hasManyThrough('App\Especialidade', 'App\Profissional');
-        return $this->with( ['profissionais', 'profissionais.especialidade'] )->get();
+        return Especialidade::whereHas('profissionais', function($query){
+                                    $query->where('cidade_id', $this->id);
+                                })->get();
     }
+    
 
 }
