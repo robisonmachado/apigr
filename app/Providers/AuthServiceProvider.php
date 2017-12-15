@@ -30,6 +30,6 @@ class AuthServiceProvider extends ServiceProvider
         //Passport::routes();
         Passport::routes(null, ['middleware' => [ \Barryvdh\Cors\HandleCors::class ]]);
         Passport::tokensExpireIn(Carbon::now()->addHours(1));
-        Passport::refreshTokensExpireIn(Carbon::now()->addDays(1));
+        Passport::refreshTokensExpireIn(Carbon::now()->addDays(2));
     }
 }
