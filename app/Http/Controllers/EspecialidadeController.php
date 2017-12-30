@@ -14,7 +14,7 @@ class EspecialidadeController extends Controller
      */
     public function index()
     {
-        return Especialidade::paginate(20);
+        return Especialidade::orderby('nome')->paginate(20);
     }
 
     /**

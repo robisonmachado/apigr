@@ -14,7 +14,7 @@ class CidadeController extends Controller
      */
     public function index()
     {
-        return Cidade::paginate(20);
+        return Cidade::orderby('nome')->paginate(20);
     }
 
     /**
@@ -47,6 +47,25 @@ class CidadeController extends Controller
     public function show(Cidade $cidade)
     {
         return $cidade;
+    }
+
+    public function especialidade(int $cidade_id, int $especialidade_id)
+    {
+        /* var_dump($cidade_id);
+        var_dump($especialidade_id); */
+        return Cidade::find($cidade_id)->especialidade($especialidade_id);
+    }
+
+    public function especialidades(int $cidade_id)
+    {
+        /* var_dump($cidade_id); */
+        return Cidade::find($cidade_id)->especialidades();
+    }
+
+    public function profissionais(int $cidade_id)
+    {
+        /* var_dump($cidade_id); */
+        return Cidade::find($cidade_id)->profissionais;
     }
 
     /**

@@ -16,7 +16,15 @@ class Cidade extends Model
     function especialidades(){
         return Especialidade::whereHas('profissionais', function($query){
                                     $query->where('cidade_id', $this->id);
-                                })->get();
+                                })->orderby('nome')->get();
+    }
+
+    function especialidade(int $especialidade_id){
+        
+        return Profissional::whereHas('cidade', function($query) use ($especialidade_id){
+                                    $query->where('cidade_id', $this->id)
+                                    ->where('especialidade_id', $especialidade_id);
+                                })->orderby('nome')->get();
     }
     
 

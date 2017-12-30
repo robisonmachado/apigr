@@ -14,7 +14,7 @@ class PlanoController extends Controller
      */
     public function index()
     {
-        return Plano::paginate(20);
+        return Plano::orderby('nome')->paginate(20);
     }
 
     /**

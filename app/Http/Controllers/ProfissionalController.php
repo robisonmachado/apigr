@@ -14,7 +14,7 @@ class ProfissionalController extends Controller
      */
     public function index()
     {
-        return Profissional::paginate(20);
+        return Profissional::orderby('nome')->paginate(20);
     }
 
     /**
