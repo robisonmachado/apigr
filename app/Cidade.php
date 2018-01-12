@@ -27,5 +27,6 @@ class Cidade extends Model
                                 })->orderby('nome')->get();
     }
     
+    
 
 }

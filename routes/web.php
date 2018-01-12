@@ -15,16 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/teste', 'Teste@index');
-Route::resource('cidade', 'CidadeController');
-Route::resource('cidade/especialidades', 'CidadeController@especialidades');
-//Route::get('cidade/{cidade_id}/especialidades',['as'=>'cidade.especialidades','uses'=>'CidadeController@especialidades']);
+//Route::get('/teste', 'Teste@index');
 
-Route::resource('profissional', 'ProfissionalController');
 
-Route::get('cidade/{cidade_id}/especialidade/{especialidade_id}', 'CidadeController@especialidade');
-Route::get('cidade/{cidade_id}/especialidades', 'CidadeController@especialidades');
-Route::get('cidade/{cidade_id}/profissionais', 'CidadeController@profissionais');
+//Route::get('cidade/{cidade_id}/especialidade/{especialidade_id}', 'CidadeController@especialidade');
+//Route::get('cidade/{cidade_id}/especialidades', 'CidadeController@especialidades');
+//Route::get('cidade/{cidade_id}/profissionais', 'CidadeController@profissionais');
+
+//Route::resource('cidade', 'CidadeController');
+//Route::resource('slide', 'SlideController');
+//Route::resource('profissional', 'ProfissionalController');
+//Route::resource('especialidade', 'EspecialidadeController');
+
+Auth::routes();
+
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

@@ -14,6 +14,9 @@ class EspecialidadeController extends Controller
      */
     public function index()
     {
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Headers: Content-Type");
+        
         return Especialidade::orderby('nome')->paginate(20);
     }
 

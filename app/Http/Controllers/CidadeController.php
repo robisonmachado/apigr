@@ -14,6 +14,8 @@ class CidadeController extends Controller
      */
     public function index()
     {
+        //header("Access-Control-Allow-Origin: *");
+        //header("Access-Control-Allow-Headers: Content-Type");
         return Cidade::orderby('nome')->paginate(20);
     }
 
@@ -24,7 +26,7 @@ class CidadeController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +37,8 @@ class CidadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return response()->json('store');
+        return view('teste')->render() ;
     }
 
     /**
@@ -101,4 +104,7 @@ class CidadeController extends Controller
     {
         //
     }
+    
+   
+    
 }
