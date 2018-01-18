@@ -38,7 +38,7 @@ class CidadeController extends Controller
     public function store(Request $request)
     {
         //return response()->json('store');
-        return view('teste')->render() ;
+        //return view('teste')->render() ;
     }
 
     /**
@@ -62,6 +62,9 @@ class CidadeController extends Controller
     public function especialidades(int $cidade_id)
     {
         /* var_dump($cidade_id); */
+        //header("Access-Control-Allow-Origin: *");
+        //header("Access-Control-Allow-Headers: Content-Type");
+
         return Cidade::find($cidade_id)->especialidades();
     }
 

@@ -19,7 +19,9 @@ Route::group(['middleware'=>['client_credentials','cors']], function () {
     
     //Route::get('/cidade', 'CidadeController@index');
         
-    Route::get('/cidade/{cidade_id}/especialidades', 'CidadeController@especialidades')->where('cidade_id', '[0-9]+');       
+    Route::get('/cidade/{cidade_id}/especialidades', 'CidadeController@especialidades');
+    Route::get('/cidade/{cidade_id}/profissionais', 'CidadeController@profissionais'); 
+    Route::get('/slides', 'SlideController@index'); 
     
     Route::resources([
         'cidade' => 'CidadeController',

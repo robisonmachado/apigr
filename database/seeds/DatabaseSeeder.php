@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EspecialidadesTableSeeder::class);
         $this->call(ProfissionaisTableSeeder::class);
         $this->call(PlanosProfissionaisSeeder::class);
+        $this->call(SlidesTableSeeder::class);
         
     }
 }

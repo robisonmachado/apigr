@@ -16,6 +16,8 @@ class SlideController extends Controller
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Headers: Content-Type");
         
+        return Slide::all()->->paginate(20);
+        /*
         return json_encode([
             [
                 'descricao' => 'unimed-es',
@@ -41,6 +43,7 @@ class SlideController extends Controller
             ]            
             
         ]);
+        */
     }
 
     /**
