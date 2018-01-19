@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Slide;
 
 class SlideController extends Controller
 {
@@ -13,37 +14,12 @@ class SlideController extends Controller
      */
     public function index()
     {
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: Content-Type");
+        //header("Access-Control-Allow-Origin: *");
+        //header("Access-Control-Allow-Headers: Content-Type");
         
-        return Slide::all()->->paginate(20);
-        /*
-        return json_encode([
-            [
-                'descricao' => 'unimed-es',
-                'url'=> "http://www.folhaiconha.com.br/wp-content/uploads/2017/09/unimede-sul-capixaba.jpg"
-            ],
-            [
-                'descricao' => 'clinica_sao_joao',
-                'url' => "http://revistacomunique.com.br/site/wp-content/uploads/2016/05/Saude-do-Coracao.jpg"
-            ],
-            [
-                'descricao' => 'clinica_marataizes',
-                'url'=> "http://divinews.com/wp-content/uploads/2017/08/vigilancia-saude.jpg"
-            ],
-            [
-                'descricao' => 'clinica_piuma',
-                'url' => "http://www.revistaapolice.com.br/wp-content/uploads/2016/08/14_-das-empresas-possuem-programas-de-gestão-em-saúde.jpg"
-            ],
-            [
-                'url' => "http://www.saude.salvador.ba.gov.br/wp-content/uploads/2013/12/saude-para-voce-2-702x336.jpg"
-            ],
-            [
-                'url' => "http://medicinarosario.com.br/wp-content/uploads/2016/05/plano-saude.jpg"
-            ]            
-            
-        ]);
-        */
+        //return Slide::all();
+        return Slide::orderby('id')->paginate(20);
+        
     }
 
     /**

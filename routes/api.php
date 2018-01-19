@@ -17,11 +17,14 @@ use Illuminate\Http\Request;
 //Route::group(['middleware'=>['cors','client_credentials','auth:api']], function () {
 Route::group(['middleware'=>['client_credentials','cors']], function () {
     
-    //Route::get('/cidade', 'CidadeController@index');
-        
-    Route::get('/cidade/{cidade_id}/especialidades', 'CidadeController@especialidades');
-    Route::get('/cidade/{cidade_id}/profissionais', 'CidadeController@profissionais'); 
+    
     Route::get('/slides', 'SlideController@index'); 
+    //Route::get('/especialidades', 'EspecialidadeController@index'); 
+
+    Route::get('/cidade/{cidade_id}/especialidades', 'CidadeController@especialidades');
+    Route::get('/cidade/{cidade_id}/especialidade/{especialidade_id}', 'CidadeController@especialidade');
+    Route::get('/cidade/{cidade_id}/profissionais', 'CidadeController@profissionais'); 
+    
     
     Route::resources([
         'cidade' => 'CidadeController',
