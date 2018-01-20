@@ -19,8 +19,7 @@ Route::group(['middleware'=>['client_credentials','cors']], function () {
     
     
     Route::get('/slides', 'SlideController@index'); 
-    //Route::get('/especialidades', 'EspecialidadeController@index'); 
-
+    
     Route::get('/cidade/{cidade_id}/especialidades', 'CidadeController@especialidades');
     Route::get('/cidade/{cidade_id}/especialidade/{especialidade_id}', 'CidadeController@especialidade');
     Route::get('/cidade/{cidade_id}/profissionais', 'CidadeController@profissionais'); 

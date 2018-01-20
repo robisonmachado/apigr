@@ -10,13 +10,15 @@ class Profissional extends Model
 
     protected $fillable = [
         'nome', 
-        'especialidade_id', 
+        'especialidade_id',
+        'cidade_id',
+        'bairro',
         'endereco', 
         'telefone1',
         'telefone2',
         'whatsapp',
         'email',
-        'cidade_id'
+        'foto'
     ];
 
     public function especialidade(){

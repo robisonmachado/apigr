@@ -18,7 +18,7 @@ class SlideController extends Controller
         //header("Access-Control-Allow-Headers: Content-Type");
         
         //return Slide::all();
-        return Slide::orderby('id')->paginate(20);
+        return Slide::orderby('id')->paginate(10);
         
     }
 
