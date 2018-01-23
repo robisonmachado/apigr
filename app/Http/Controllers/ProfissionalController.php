@@ -40,7 +40,36 @@ class ProfissionalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->filled([
+            'nome', 
+            'cidade_id', 
+            'especialidade_id', 
+            'bairro', 
+            'endereco', 
+            'telefone1'
+            ])) {
+
+
+                $dados = [
+                'nome' => $request->input('nome'),
+                'cidade_id' =>  $request->input('cidade_id'),
+                'especialidade_id' =>  $request->input('especialidade_id'),
+                'bairro' => $request->input('bairro'),
+                'endereco' => $request->input('endereco'),
+                'telefone1' => $request->input('telefone1'),
+                'telefone2' => $request->input('telefone2'),
+                'whatsapp' => $request->input('whatsapp'),
+                'email' => $request->input('email'),
+                'foto' => $request->input('foto')
+
+                ];
+
+                $prof = Profissional::create($dados);
+                return $prof;
+
+        }
+
+        return json_encode(['errorMessage': 'Não foi possível inserir os dados']);
     }
 
     /**
