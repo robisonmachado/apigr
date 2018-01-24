@@ -25,12 +25,15 @@ Route::group(['middleware'=>['client_credentials','cors']], function () {
     Route::get('/cidade/{cidade_id}/profissionais', 'CidadeController@profissionais'); 
     
     Route::get('/profissional/{profissional_id}/planos', 'ProfissionalController@planos'); 
+
+    Route::post('/profissional/adicionarPlanos', 'ProfissionalController@adicionarPlanos'); 
     
     Route::resources([
         'cidade' => 'CidadeController',
         'especialidade' => 'EspecialidadeController',
         'plano' => 'PlanoController',
-        'profissional' => 'ProfissionalController'
+        'profissional' => 'ProfissionalController',
+        'slide' => 'SlideController'
     ]); 
     
 

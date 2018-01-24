@@ -37,8 +37,21 @@ class CidadeController extends Controller
      */
     public function store(Request $request)
     {
-        //return response()->json('store');
-        //return view('teste')->render() ;
+        if ($request->filled([
+            'nome'
+            ])) {
+
+
+                $dados = [
+                'nome' => $request->input('nome')
+                ];
+
+                $city = Cidade::create($dados);
+                return $city;
+
+        }
+
+        return json_encode(['errorMessage' => 'Não foi possível inserir os dados']);
     }
 
     /**

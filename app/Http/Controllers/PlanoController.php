@@ -35,7 +35,21 @@ class PlanoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->filled([
+            'nome'
+            ])) {
+
+
+                $dados = [
+                'nome' => $request->input('nome')
+                ];
+
+                $plano = Plano::create($dados);
+                return $plano;
+
+        }
+
+        return json_encode(['errorMessage' => 'Não foi possível inserir os dados']);
     }
 
     /**

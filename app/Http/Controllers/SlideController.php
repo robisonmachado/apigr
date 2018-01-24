@@ -40,7 +40,23 @@ class SlideController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->filled([
+            'url',
+            'descricao'
+            ])) {
+
+
+                $dados = [
+                'url' => $request->input('url'),
+                'descricao' => $request->input('descricao')
+                ];
+
+                $slide = Slide::create($dados);
+                return $slide;
+
+        }
+
+        return json_encode(['errorMessage' => 'Não foi possível inserir os dados']);
     }
 
     /**

@@ -38,7 +38,21 @@ class EspecialidadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->filled([
+            'nome'
+            ])) {
+
+
+                $dados = [
+                'nome' => $request->input('nome')
+                ];
+
+                $especialidade = Especialidade::create($dados);
+                return $especialidade;
+
+        }
+
+        return json_encode(['errorMessage' => 'Não foi possível inserir os dados']);
     }
 
     /**

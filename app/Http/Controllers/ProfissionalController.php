@@ -19,7 +19,7 @@ class ProfissionalController extends Controller
 
     public function planos(int $profissional_id)
     {
-        return json_encode(Profissional::find($profissional_id)->planos);
+        return json_encode( Profissional::find($profissional_id)->planos()->orderby('nome')->get() );
     }
 
     /**
@@ -61,15 +61,23 @@ class ProfissionalController extends Controller
                 'whatsapp' => $request->input('whatsapp'),
                 'email' => $request->input('email'),
                 'foto' => $request->input('foto')
-
                 ];
 
-                $prof = Profissional::create($dados);
-                return $prof;
+
+                $profissional = Profissional::create($dados);
+
+
+                if( $request->filled('planos') ){
+                    $profissional->planos()->sync($request->input('planos'));    
+                }
+                 
+
+
+                return $profissional;
 
         }
 
-        return json_encode(['errorMessage': 'Não foi possível inserir os dados']);
+        return json_encode(['errorMessage' => 'Não foi possível inserir os dados']);
     }
 
     /**
@@ -92,6 +100,23 @@ class ProfissionalController extends Controller
     public function edit(Profissional $profissional)
     {
         //
+    }
+
+    public function adicionarPlanos(Request $request)
+    {
+        if ( $request->filled(['profissional_id','planos']) ) {
+            $profissional_id = $request->input('profissional_id');
+            $planos = $request->input('planos');
+
+            $profissional = profissional::find($profissional_id);
+            $profissional->planos()->sync($planos); 
+
+            return $profissional->planos;
+
+        }
+
+        
+        return ['errorMessage' => 'Não foi possível inserir os dados'];
     }
 
     /**

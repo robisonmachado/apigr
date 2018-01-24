@@ -26,7 +26,6 @@ class Cidade extends Model
                                     ->where('especialidade_id', $especialidade_id);
                                 })->orderby('nome')->get();
     }
-    
-    
+        
 
 }
